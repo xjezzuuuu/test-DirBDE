@@ -89,6 +89,20 @@ switch (ENVIRONMENT)
 		exit(1); // EXIT_ERROR
 }
 
+/**
+ * *---------------------------------------------------------------
+ * APP URL
+ * ---------------------------------------------------------------
+ *
+ * Define APP_URL Dynamically
+ * Write this at the bottom of index.php
+ *
+ * Automatic base url
+ */
+$port = ($_SERVER['SERVER_PORT'] == 80 or $_SERVER['SERVER_PORT'] == 443) ? "" : ":" . $_SERVER['SERVER_PORT'];
+define('APP_URL', (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) || isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' ? 'https' : 'http') . "://{$_SERVER['SERVER_NAME']}{$port}" . str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']));
+
+
 /*
  *---------------------------------------------------------------
  * SYSTEM DIRECTORY NAME
@@ -304,6 +318,19 @@ switch (ENVIRONMENT)
 	}
 
 	define('VIEWPATH', $view_folder.DIRECTORY_SEPARATOR);
+
+/*
+ * --------------------------------------------------------------------
+ * LOAD PHP DOT ENV FILE
+ * --------------------------------------------------------------------
+ *
+ * And away we go...
+ *
+ */
+require_once BASEPATH . 'dotenv/autoloader.php';
+
+$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv->load();
 
 /*
  * --------------------------------------------------------------------
