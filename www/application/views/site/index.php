@@ -12,12 +12,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
+                        <?php foreach ($allUsers as $user) : ?>
+                            <tr>
+                                <th scope="row"><?=$user['id']?></th>
+                                <td><?=$user['nombre']?></td>
+                                <td><?=$user['email']?></td>
+                                <td><?=$user['fecha_registro']?></td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

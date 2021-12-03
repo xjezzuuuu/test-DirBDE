@@ -19,6 +19,7 @@ class Migration_Add_Users extends CI_Migration
             'email' => array(
                 'type' => 'varchar',
                 'constraint' => 255,
+                'unique' => true
             ),
             'fecha_registro' => array(
                 'type' => 'timestamp',

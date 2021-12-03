@@ -11,7 +11,7 @@
         </li>
       </ul>
       <span class="navbar-text">
-        <a href="<?= base_url() ?>nuevo"><button type="button" class="btn btn-light">Light</button></a>
+        <a href="<?= base_url() ?>nuevo"><button type="button" class="btn btn-light">Crear Usuario</button></a>
       </span>
     </div>
   </div>

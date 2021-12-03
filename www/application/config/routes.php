@@ -54,9 +54,9 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 /* Routes Users */
-$route['/']['get'] = 'User/index';
-$route['/nuevo']['get'] = 'User/new';
-$route['/store']['post'] = 'User/store';
+$route['']['get'] = 'User/index';
+$route['nuevo']['get'] = 'User/create';
+$route['store']['post'] = 'User/store';
 
 /* Route Migrations */
 $route['migration'] = 'Migrate/index';
